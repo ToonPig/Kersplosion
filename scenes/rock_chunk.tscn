@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://ck3mxvf41oqjf"]
+
+[ext_resource type="Script" uid="uid://cuysn2tbh1od8" path="res://scripts/rock_chunk.gd" id="1_ixbnw"]
+[ext_resource type="Texture2D" uid="uid://dxukyb2b630on" path="res://images/RockChunk.png" id="1_ufofl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ixbnw"]
+size = Vector2(38, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jvq16"]
+size = Vector2(10, 9)
+
+[node name="RockChunk" type="RigidBody2D"]
+gravity_scale = 0.0
+linear_damp = 1.0
+script = ExtResource("1_ixbnw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_ufofl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.2, 0.4)
+scale = Vector2(0.2, 0.2)
+shape = SubResource("RectangleShape2D_ixbnw")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_jvq16")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

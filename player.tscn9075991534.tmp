@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://l76d776p5d5a"]
+
+[ext_resource type="Script" uid="uid://bevydujvgv4rx" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://bv7w200wr5pno" path="res://images/LightSource.png" id="2_hqtel"]
+[ext_resource type="Texture2D" uid="uid://dqa6s7xp6b1g5" path="res://images/CharlieDefaultPose.png" id="2_i3pqv"]
+[ext_resource type="Script" uid="uid://cjrjjftbwyj26" path="res://health_bar.gd" id="4_hqtel"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
+size = Vector2(29, 30)
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_onrkg")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+scale = Vector2(4.58999, 4.80503)
+color = Color(1, 1, 1, 0.768627)
+blend_mode = 2
+range_z_max = 1749
+texture = ExtResource("2_hqtel")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_i3pqv")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)
+position_smoothing_enabled = true
+position_smoothing_speed = 20.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 2)
+shape = SubResource("RectangleShape2D_onrkg")
+
+[node name="HealthBar" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(5, 5)
+offset_left = -380.0
+offset_top = -214.0
+offset_right = -340.0
+offset_bottom = -174.0
+script = ExtResource("4_hqtel")
+
+[node name="1" type="TextureRect" parent="HealthBar"]
+layout_mode = 2
+
+[node name="2" type="TextureRect" parent="HealthBar"]
+layout_mode = 2
+
+[node name="3" type="TextureRect" parent="HealthBar"]
+layout_mode = 2
+
+[node name="4" type="TextureRect" parent="HealthBar"]
+layout_mode = 2
+
+[node name="5" type="TextureRect" parent="HealthBar"]
+layout_mode = 2

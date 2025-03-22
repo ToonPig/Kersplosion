@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dul6yiln8avn6"]
+
+[ext_resource type="Script" uid="uid://bnie7c0lpjqfa" path="res://scripts/rock.gd" id="1_68h2w"]
+[ext_resource type="Texture2D" uid="uid://cap71lvf181qf" path="res://images/Rock.png" id="1_o0qsl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_68h2w"]
+size = Vector2(14, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wecdg"]
+size = Vector2(39, 40)
+
+[node name="Rock" type="StaticBody2D"]
+script = ExtResource("1_68h2w")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_o0qsl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_68h2w")
+
+[node name="interact" type="Area2D" parent="."]
+
+[node name="detection" type="CollisionShape2D" parent="interact"]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_wecdg")
+
+[connection signal="body_entered" from="interact" to="." method="_on_interact_body_entered"]
+[connection signal="body_exited" from="interact" to="." method="_on_interact_body_exited"]

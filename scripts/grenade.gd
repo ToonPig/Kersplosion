@@ -7,6 +7,8 @@ func launch():
 	$Timer.start()
 	thrust = transform.x * 500
 	apply_central_impulse(thrust)
+
+#Player grenade
 #checks if what it touches is a player or bot, in which case ittl call different functions
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
@@ -35,3 +37,11 @@ func explosion():
 			var range: float = 100.0
 			if distance < range:
 				node.apply_impulse(direction.normalized() * impulse_power)
+
+#This one is for the AI grenades making sure they dont kill the bot
+func _on_ai_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		explosion()
+		var player = body
+		player.health = player.health - 1
+		queue_free()

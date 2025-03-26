@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var grenade = preload("res://scenes/ai_grenade.tscn")
 
-var speed = -100 #minus moves left positives move right
+var speed = 1 #minus moves backwards positives move forwards
 var damage = 1
 var sight = false
 var player = null
@@ -12,7 +12,7 @@ var acceleration = 20
 var power = 20
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var jumping = false
-var jump_speed = -400
+var jump_speed = -600
 var isShooting = true
 
 func _process(delta):
@@ -23,25 +23,23 @@ func _process(delta):
 			player.health = player.health - damage
 			await get_tree().create_timer(0.7).timeout#replace with a timer node someday
 			isAttacking = true
-	#if player is spotted ittl follow the player
-	''' temp unused
-	if sight:
-		#print(player.position)
-		velocity = Vector2.ZERO
-		velocity = position.direction_to(player.position) * speed
-		move_and_slide()
-	'''
 
 	#pve mode walking
 	var jumpcalc = randi_range(-50, 50) #temp random jump intervals
 	if jumpcalc == 5 and is_on_floor():
 		jumping = true
-	velocity.x = speed
-	move_and_slide()
 	velocity.y += gravity * delta
 	if jumping:
 		velocity.y = jump_speed
 		jumping = false
+
+	#if player is spotted ittl follow the player
+	if sight:
+		#print(player.position)
+		var dir = player.global_position.x - global_position.x
+		velocity.x = dir * speed
+		move_and_slide()
+
 
 	#pve shooting
 	if sight:

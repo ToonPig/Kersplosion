@@ -34,8 +34,8 @@ func explosion():
 			var direction: Vector2 = node.global_position - pos
 			var distance: float = direction.length()
 			var impulse_power: float = 600.0
-			var range: float = 100.0
-			if distance < range:
+			var sightrange: float = 100.0
+			if distance < sightrange:
 				node.apply_impulse(direction.normalized() * impulse_power)
 
 #This one is for the AI grenades making sure they dont kill the bot

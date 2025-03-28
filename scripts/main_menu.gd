@@ -31,3 +31,11 @@ func _on_button_pressed() -> void:
 #opens link to my website (located on the about page)
 func _on_website_pressed() -> void:
 	OS.shell_open("https://pumpkinsite.neocities.org/") 
+
+# Multiplayer host a game
+func _on_host_pressed() -> void:
+	pass
+
+# Multiplayer join a game
+func _on_join_pressed() -> void:
+	pass

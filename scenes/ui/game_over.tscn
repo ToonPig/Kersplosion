@@ -44,23 +44,34 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_x6o8e")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(566, 338)
-scale = Vector2(5, 5)
-texture = ExtResource("1_y26ei")
-
-[node name="Label" type="Label" parent="."]
-material = SubResource("ShaderMaterial_o6b8n")
+[node name="Sprite2D" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -95.0
+offset_top = -92.0
+offset_right = -53.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+texture = ExtResource("1_y26ei")
+
+[node name="Label" type="Label" parent="."]
+material = SubResource("ShaderMaterial_o6b8n")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.255
+anchor_right = 0.5
+anchor_bottom = 0.255
 offset_left = -163.0
-offset_top = -198.0
+offset_top = -39.24
 offset_right = 164.0
-offset_bottom = -120.0
+offset_bottom = 38.76
 grow_horizontal = 2
 grow_vertical = 2
 text = "GAME OVER"
@@ -68,15 +79,15 @@ label_settings = SubResource("LabelSettings_y26ei")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.787
 anchor_right = 0.5
-anchor_bottom = 1.0
+anchor_bottom = 0.787
 offset_left = -132.0
-offset_top = -171.0
+offset_top = -32.976
 offset_right = 133.0
-offset_bottom = -105.0
+offset_bottom = 33.024
 grow_horizontal = 2
 grow_vertical = 0
 mouse_default_cursor_shape = 2

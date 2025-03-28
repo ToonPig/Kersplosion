@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://circes5vqkja1"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://circes5vqkja1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wca60"]
 bg_color = Color(0, 0, 0, 0.368627)
@@ -60,6 +60,38 @@ corner_radius_bottom_left = 5
 expand_margin_top = 12.0
 expand_margin_bottom = 12.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ah46u"]
+bg_color = Color(0, 0, 0, 0.415686)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 0.513726)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 5.0
+expand_margin_top = 12.0
+expand_margin_right = 5.0
+expand_margin_bottom = 12.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x78rd"]
+bg_color = Color(0, 0, 0, 0.294118)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 0.513726)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 5.0
+expand_margin_top = 12.0
+expand_margin_right = 5.0
+expand_margin_bottom = 12.0
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ktaku"]
 bg_color = Color(0.0839182, 0.0933323, 0.138863, 1)
 
@@ -69,4 +101,6 @@ Button/styles/focus = SubResource("StyleBoxFlat_wca60")
 Button/styles/hover = SubResource("StyleBoxFlat_funo8")
 Button/styles/normal = SubResource("StyleBoxFlat_ebccb")
 Button/styles/pressed = SubResource("StyleBoxFlat_gbcni")
+LineEdit/styles/focus = SubResource("StyleBoxFlat_ah46u")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_x78rd")
 Panel/styles/panel = SubResource("StyleBoxFlat_ktaku")

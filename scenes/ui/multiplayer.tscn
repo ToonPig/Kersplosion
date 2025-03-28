@@ -1,14 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://c2m5ln1uat8ob"]
+[gd_scene load_steps=9 format=3 uid="uid://blkftqn5f202c"]
 
-[ext_resource type="Script" uid="uid://k5hncnk46hip" path="res://scripts/main_menu.gd" id="1_m1kxf"]
-[ext_resource type="Theme" uid="uid://circes5vqkja1" path="res://themes/menu_theme.tres" id="2_uhagc"]
-[ext_resource type="Texture2D" uid="uid://dqa6s7xp6b1g5" path="res://assets/CharlieDefaultPose.png" id="2_x2yvf"]
-[ext_resource type="Texture2D" uid="uid://om0oh0qsg8dr" path="res://assets/launcher.png" id="3_uhagc"]
-[ext_resource type="Texture2D" uid="uid://bgbv2ikl76ldv" path="res://assets/Pill.png" id="4_btxxm"]
-[ext_resource type="Shader" uid="uid://dmltavbd4oo5n" path="res://shaders/text_wave.gdshader" id="6_btxxm"]
+[ext_resource type="Script" uid="uid://k5hncnk46hip" path="res://scripts/main_menu.gd" id="1_mdf06"]
+[ext_resource type="Theme" uid="uid://circes5vqkja1" path="res://themes/menu_theme.tres" id="2_tgb8u"]
+[ext_resource type="Texture2D" uid="uid://dqa6s7xp6b1g5" path="res://assets/CharlieDefaultPose.png" id="3_4mmfk"]
+[ext_resource type="Texture2D" uid="uid://om0oh0qsg8dr" path="res://assets/launcher.png" id="4_nur06"]
+[ext_resource type="Texture2D" uid="uid://bgbv2ikl76ldv" path="res://assets/Pill.png" id="5_btuvl"]
+[ext_resource type="Shader" uid="uid://dmltavbd4oo5n" path="res://shaders/text_wave.gdshader" id="6_gr53i"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wb0q5"]
-shader = ExtResource("6_btxxm")
+shader = ExtResource("6_gr53i")
 shader_parameter/u_amp_flutter = 0.0
 shader_parameter/u_angle_flutter = -180.0
 shader_parameter/u_speed_flutter = 0.1
@@ -35,7 +35,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_m1kxf")
+script = ExtResource("1_mdf06")
 
 [node name="Background" type="Panel" parent="."]
 layout_mode = 1
@@ -44,37 +44,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_uhagc")
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -77.0
-offset_top = -35.0
-offset_right = 77.0
-offset_bottom = -12.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "A game by Pumpkin"
+theme = ExtResource("2_tgb8u")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(235, 119)
 scale = Vector2(4.69971, 5.15977)
-texture = ExtResource("2_x2yvf")
+texture = ExtResource("3_4mmfk")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
 position = Vector2(23.4057, 2.32569)
 scale = Vector2(0.0345437, 0.0345437)
-texture = ExtResource("3_uhagc")
+texture = ExtResource("4_nur06")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Sprite2D"]
 position = Vector2(137.668, 2.13188)
 scale = Vector2(0.457948, 0.457948)
-texture = ExtResource("4_btxxm")
+texture = ExtResource("5_btuvl")
 
 [node name="Title" type="Label" parent="."]
 material = SubResource("ShaderMaterial_wb0q5")
@@ -101,31 +86,35 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 40
 
-[node name="Play" type="Button" parent="VBoxContainer"]
+[node name="Host" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
-theme = ExtResource("2_uhagc")
-text = "Play DEMO"
+theme = ExtResource("2_tgb8u")
+text = "HOST"
 
-[node name="Multiplayer" type="Button" parent="VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_tgb8u")
+placeholder_text = "ENTER IP ADDRESS HERE"
+
+[node name="JOIN" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
-theme = ExtResource("2_uhagc")
-text = "Multiplayer"
+theme = ExtResource("2_tgb8u")
+text = "JOIN"
 
-[node name="About" type="Button" parent="VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="BACK" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
-theme = ExtResource("2_uhagc")
-text = "About"
+theme = ExtResource("2_tgb8u")
+text = "BACK"
 
-[node name="Quit" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-mouse_default_cursor_shape = 2
-theme = ExtResource("2_uhagc")
-text = "QUIT"
-
-[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="VBoxContainer/Multiplayer" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="VBoxContainer/About" to="." method="_on_about_pressed"]
-[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="VBoxContainer/Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="VBoxContainer/JOIN" to="." method="_on_join_pressed"]
+[connection signal="pressed" from="VBoxContainer/BACK" to="." method="_on_back_pressed"]

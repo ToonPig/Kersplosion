@@ -1,0 +1,95 @@
+[gd_scene load_steps=9 format=3 uid="uid://l76d776p5d5a"]
+
+[ext_resource type="Script" uid="uid://bevydujvgv4rx" path="res://scripts/player.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://bv7w200wr5pno" path="res://assets/LightSource.png" id="2_hqtel"]
+[ext_resource type="Texture2D" uid="uid://dqa6s7xp6b1g5" path="res://assets/CharlieDefaultPose.png" id="2_i3pqv"]
+[ext_resource type="Script" uid="uid://cjrjjftbwyj26" path="res://scripts/health_bar.gd" id="4_hqtel"]
+[ext_resource type="Texture2D" uid="uid://dtgclu3cd2k4n" path="res://assets/slash.png" id="5_sweqy"]
+[ext_resource type="Texture2D" uid="uid://om0oh0qsg8dr" path="res://assets/launcher.png" id="6_tuyoq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
+size = Vector2(25.5, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sweqy"]
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_onrkg")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)
+position_smoothing_enabled = true
+position_smoothing_speed = 20.0
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+scale = Vector2(4.58999, 4.80503)
+color = Color(1, 1, 1, 0.768627)
+blend_mode = 2
+range_z_max = 1749
+texture = ExtResource("2_hqtel")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_i3pqv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.75, 2)
+shape = SubResource("RectangleShape2D_onrkg")
+
+[node name="HealthBar" type="HBoxContainer" parent="."]
+offset_left = -20.0
+offset_top = -22.0
+offset_right = -4.0
+offset_bottom = -22.0
+scale = Vector2(0.4, 0.4)
+script = ExtResource("4_hqtel")
+
+[node name="1" type="TextureRect" parent="HealthBar"]
+layout_mode = 2
+
+[node name="2" type="TextureRect" parent="HealthBar"]
+layout_mode = 2
+
+[node name="3" type="TextureRect" parent="HealthBar"]
+layout_mode = 2
+
+[node name="4" type="TextureRect" parent="HealthBar"]
+layout_mode = 2
+
+[node name="5" type="TextureRect" parent="HealthBar"]
+layout_mode = 2
+
+[node name="reach" type="Area2D" parent="."]
+visible = false
+position = Vector2(-1, 1)
+scale = Vector2(2.92, 2.8)
+
+[node name="Slash" type="Sprite2D" parent="reach"]
+visible = false
+position = Vector2(0, -6.42857)
+scale = Vector2(0.342465, 0.357143)
+texture = ExtResource("5_sweqy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="reach"]
+shape = SubResource("RectangleShape2D_sweqy")
+disabled = true
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Muzzle" type="Marker2D" parent="."]
+
+[node name="EntitySpawn" type="Marker2D" parent="Muzzle"]
+position = Vector2(41, 0)
+
+[node name="Launcher" type="Sprite2D" parent="Muzzle"]
+position = Vector2(28, 0)
+scale = Vector2(0.031301, 0.0515696)
+texture = ExtResource("6_tuyoq")
+
+[node name="IsShooting" type="Timer" parent="."]
+wait_time = 0.8
+one_shot = true
+
+[connection signal="body_entered" from="reach" to="." method="_on_reach_body_entered"]
+[connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
+[connection signal="timeout" from="IsShooting" to="." method="_on_is_shooting_timeout"]

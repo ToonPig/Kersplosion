@@ -17,6 +17,19 @@ config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/show_image=false
 config/icon="uid://dqa6s7xp6b1g5"
 
+[file_customization]
+
+folder_colors={
+"res://assets/": "red",
+"res://scenes/": "orange",
+"res://scenes/game/": "yellow",
+"res://scenes/objects/": "green",
+"res://scenes/ui/": "teal",
+"res://scripts/": "blue",
+"res://shaders/": "purple",
+"res://themes/": "pink"
+}
+
 [global_group]
 
 player="is the you!"

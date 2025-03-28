@@ -1,6 +1,6 @@
 extends StaticBody2D
 #old script to test rock interaction to spawn little rocks
-var rockChunk = preload("res://scenes/rock_chunk.tscn")
+var rockChunk = preload("res://scenes/objects/rock_chunk.tscn")
 var isEntered = false
 
 #spawns baby rocks

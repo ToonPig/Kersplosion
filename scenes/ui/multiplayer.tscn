@@ -1,0 +1,146 @@
+[gd_scene load_steps=9 format=3 uid="uid://blkftqn5f202c"]
+
+[ext_resource type="Script" uid="uid://k5hncnk46hip" path="res://scripts/main_menu.gd" id="1_mdf06"]
+[ext_resource type="Theme" uid="uid://circes5vqkja1" path="res://themes/menu_theme.tres" id="2_tgb8u"]
+[ext_resource type="Texture2D" uid="uid://dqa6s7xp6b1g5" path="res://assets/CharlieDefaultPose.png" id="3_4mmfk"]
+[ext_resource type="Texture2D" uid="uid://om0oh0qsg8dr" path="res://assets/launcher.png" id="4_nur06"]
+[ext_resource type="Texture2D" uid="uid://bgbv2ikl76ldv" path="res://assets/Pill.png" id="5_btuvl"]
+[ext_resource type="Shader" uid="uid://dmltavbd4oo5n" path="res://shaders/text_wave.gdshader" id="6_gr53i"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wb0q5"]
+shader = ExtResource("6_gr53i")
+shader_parameter/u_amp_flutter = 0.0
+shader_parameter/u_angle_flutter = -180.0
+shader_parameter/u_speed_flutter = 0.1
+shader_parameter/u_amp_wave = 25.843
+shader_parameter/u_angle_wave = 90.0
+shader_parameter/u_speed_wave = 4.719
+shader_parameter/u_len_wave = 656.18
+shader_parameter/u_shape_wave = 2.41
+shader_parameter/u_width_wave = 1.219
+shader_parameter/u_x_light = 0.2
+shader_parameter/u_shape_light = 2.0
+shader_parameter/u_width_light = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_wu84c"]
+font_size = 60
+font_color = Color(1, 1, 0, 1)
+shadow_size = 2
+shadow_color = Color(1, 0, 0, 1)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mdf06")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_tgb8u")
+
+[node name="Title" type="Label" parent="."]
+material = SubResource("ShaderMaterial_wb0q5")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -170.0
+offset_top = 68.0
+offset_right = 252.0
+offset_bottom = 151.0
+text = "KERSPLOSION!"
+label_settings = SubResource("LabelSettings_wu84c")
+
+[node name="Player" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.006
+anchor_right = 0.5
+anchor_bottom = 0.006
+offset_left = -427.0
+offset_top = 0.112008
+offset_right = -385.0
+offset_bottom = 42.112
+scale = Vector2(4.69971, 5.15977)
+texture = ExtResource("3_4mmfk")
+
+[node name="Gun" type="TextureRect" parent="Player"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 2.235
+anchor_right = 2.235
+offset_left = -73.4432
+offset_top = 16.8612
+offset_right = 1226.56
+offset_bottom = 424.861
+scale = Vector2(0.0345437, 0.0345437)
+texture = ExtResource("4_nur06")
+
+[node name="Grenade" type="TextureRect" parent="Player"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 2.195
+anchor_right = 2.195
+offset_left = 57.6065
+offset_top = 13.3727
+offset_right = 99.6065
+offset_bottom = 55.3727
+scale = Vector2(0.457948, 0.457948)
+texture = ExtResource("5_btuvl")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -170.0
+offset_top = -396.0
+offset_right = 170.0
+offset_bottom = -53.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="Host" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_tgb8u")
+text = "HOST"
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_tgb8u")
+placeholder_text = "ENTER IP ADDRESS HERE"
+
+[node name="JOIN" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_tgb8u")
+text = "JOIN"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="BACK" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_tgb8u")
+text = "BACK"
+
+[connection signal="pressed" from="VBoxContainer/Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="VBoxContainer/JOIN" to="." method="_on_join_pressed"]
+[connection signal="pressed" from="VBoxContainer/BACK" to="." method="_on_back_pressed"]

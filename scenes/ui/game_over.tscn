@@ -1,0 +1,97 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5km535kop030"]
+
+[ext_resource type="Script" uid="uid://k5hncnk46hip" path="res://scripts/main_menu.gd" id="1_wqhvx"]
+[ext_resource type="Texture2D" uid="uid://dqa6s7xp6b1g5" path="res://assets/CharlieDefaultPose.png" id="1_y26ei"]
+[ext_resource type="Shader" uid="uid://dmltavbd4oo5n" path="res://shaders/text_wave.gdshader" id="3_vfrx6"]
+[ext_resource type="Theme" uid="uid://circes5vqkja1" path="res://themes/menu_theme.tres" id="3_x6o8e"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o6b8n"]
+shader = ExtResource("3_vfrx6")
+shader_parameter/u_amp_flutter = 0.0
+shader_parameter/u_angle_flutter = -180.0
+shader_parameter/u_speed_flutter = 0.1
+shader_parameter/u_amp_wave = 25.843
+shader_parameter/u_angle_wave = 90.0
+shader_parameter/u_speed_wave = 4.719
+shader_parameter/u_len_wave = 656.18
+shader_parameter/u_shape_wave = 2.41
+shader_parameter/u_width_wave = 1.219
+shader_parameter/u_x_light = 0.2
+shader_parameter/u_shape_light = 2.0
+shader_parameter/u_width_light = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_y26ei"]
+font_size = 57
+font_color = Color(1, 0, 0, 1)
+shadow_size = 16
+shadow_color = Color(0.392157, 0, 0, 1)
+
+[node name="gameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wqhvx")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_x6o8e")
+
+[node name="Sprite2D" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.0
+offset_top = -92.0
+offset_right = -53.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+texture = ExtResource("1_y26ei")
+
+[node name="Label" type="Label" parent="."]
+material = SubResource("ShaderMaterial_o6b8n")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.255
+anchor_right = 0.5
+anchor_bottom = 0.255
+offset_left = -163.0
+offset_top = -39.24
+offset_right = 164.0
+offset_bottom = 38.76
+grow_horizontal = 2
+grow_vertical = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_y26ei")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.787
+anchor_right = 0.5
+anchor_bottom = 0.787
+offset_left = -132.0
+offset_top = -32.976
+offset_right = 133.0
+offset_bottom = 33.024
+grow_horizontal = 2
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+theme = ExtResource("3_x6o8e")
+text = "GOTO MENU"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

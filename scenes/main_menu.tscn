@@ -1,0 +1,84 @@
+[gd_scene load_steps=6 format=3 uid="uid://c2m5ln1uat8ob"]
+
+[ext_resource type="Script" uid="uid://k5hncnk46hip" path="res://scripts/main_menu.gd" id="1_ekxnf"]
+[ext_resource type="Texture2D" uid="uid://dqa6s7xp6b1g5" path="res://images/CharlieDefaultPose.png" id="2_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://om0oh0qsg8dr" path="res://images/launcher.png" id="3_wu84c"]
+[ext_resource type="Texture2D" uid="uid://bgbv2ikl76ldv" path="res://images/Pill.png" id="4_8ln24"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wu84c"]
+font_size = 60
+font_color = Color(1, 1, 0, 1)
+shadow_size = 2
+shadow_color = Color(1, 0, 0, 1)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ekxnf")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 516.0
+offset_top = 614.0
+offset_right = 670.0
+offset_bottom = 637.0
+text = "A game by Pumpkin"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(235, 119)
+scale = Vector2(4.69971, 5.15977)
+texture = ExtResource("2_bqqt6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(23.4057, 2.32569)
+scale = Vector2(0.0345437, 0.0345437)
+texture = ExtResource("3_wu84c")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(137.668, 2.13188)
+scale = Vector2(0.457948, 0.457948)
+texture = ExtResource("4_8ln24")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 405.0
+offset_top = 89.0
+offset_right = 827.0
+offset_bottom = 172.0
+text = "KERSPLOSION!"
+label_settings = SubResource("LabelSettings_wu84c")
+
+[node name="Play" type="Button" parent="."]
+layout_mode = 0
+offset_left = 476.0
+offset_top = 327.0
+offset_right = 569.0
+offset_bottom = 358.0
+scale = Vector2(2.48037, 2.19677)
+text = "Play DEMO"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 539.0
+offset_top = 515.0
+offset_right = 586.0
+offset_bottom = 546.0
+scale = Vector2(2.11312, 1.56092)
+text = "QUIT"
+
+[node name="About" type="Button" parent="."]
+layout_mode = 0
+offset_left = 536.0
+offset_top = 403.0
+offset_right = 591.0
+offset_bottom = 434.0
+scale = Vector2(1.98223, 1.76937)
+text = "About"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="About" to="." method="_on_about_pressed"]

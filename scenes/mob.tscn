@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://dkb62ovy1v5bd"]
+
+[ext_resource type="Script" uid="uid://t55naxwaw6wy" path="res://scripts/mob.gd" id="1_nokgg"]
+[ext_resource type="Texture2D" uid="uid://dqa6s7xp6b1g5" path="res://images/CharlieDefaultPose.png" id="2_ubaqv"]
+[ext_resource type="Texture2D" uid="uid://om0oh0qsg8dr" path="res://images/launcher.png" id="3_d4cuo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p11y5"]
+size = Vector2(24, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s5nov"]
+size = Vector2(29, 30)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nokgg"]
+radius = 423.521
+
+[node name="Mob" type="CharacterBody2D" groups=["Mob"]]
+script = ExtResource("1_nokgg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 0, 0, 1)
+texture = ExtResource("2_ubaqv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 3)
+shape = SubResource("RectangleShape2D_p11y5")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2.5, 3)
+shape = SubResource("RectangleShape2D_s5nov")
+debug_color = Color(0.974071, 0, 0.429438, 0.42)
+
+[node name="sight" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sight"]
+visible = false
+shape = SubResource("CircleShape2D_nokgg")
+
+[node name="Muzzle" type="Marker2D" parent="."]
+position = Vector2(-2, 3)
+
+[node name="EntitySpawn" type="Marker2D" parent="Muzzle"]
+position = Vector2(38, 0)
+
+[node name="Launcher" type="Sprite2D" parent="Muzzle"]
+position = Vector2(28, 0)
+scale = Vector2(0.031301, 0.0515696)
+texture = ExtResource("3_d4cuo")
+
+[node name="IsShooting" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="sight" to="." method="_on_sight_body_entered"]
+[connection signal="body_exited" from="sight" to="." method="_on_sight_body_exited"]
+[connection signal="timeout" from="IsShooting" to="." method="_on_is_shooting_timeout"]

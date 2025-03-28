@@ -1,0 +1,40 @@
+the big TODO list!
+
+--in progress--
+optimize code to less lines/fileSize and getting rid of those unneeded function updates (this one is ALWAYS on the TODO)
+explosions push player back
+
+
+--planned--
+bot AI and bot games
+Tutorial map
+Multiplayer! (peer to peer or dedicated server client)
+Splitscreen local multiplayer!
+.exe icon be the games icon instead of the godot gear
+level selection screen
+option menu for sound/input/accesability (for motionsickness able to get rid of screen shake)
+animated sprites
+round counter and win counter
+leaderboard with the win counter, kill counter and death counter
+custom colored pills the player can set!
+proper main menu and credits menu
+proper textures
+SFX and Music
+
+
+--ideas/concepts--
+level editor? Could make it easier for people to share and create maps!
+mod manager? or do i just have people send custom .exe files?
+instead of static sprites have a player customizer with accessories?
+instead of a static jump height make it more controllable?
+texturepacks?
+giblets!
+
+
+--DONE--
+pills able to explode!
+crates! (with physics!)
+Player movement feels nice and cool
+You can shoot and hit targets!
+parallax backgrounds
+organized entire project file structure

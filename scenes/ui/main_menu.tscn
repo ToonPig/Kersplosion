@@ -48,7 +48,7 @@ theme = ExtResource("2_uhagc")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -61,42 +61,68 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "A game by Pumpkin"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(235, 119)
+[node name="Player" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.006
+anchor_right = 0.5
+anchor_bottom = 0.006
+offset_left = -427.0
+offset_top = 0.112008
+offset_right = -385.0
+offset_bottom = 42.112
 scale = Vector2(4.69971, 5.15977)
 texture = ExtResource("2_x2yvf")
 
-[node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
-position = Vector2(23.4057, 2.32569)
+[node name="Gun" type="TextureRect" parent="Player"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 2.235
+anchor_right = 2.235
+offset_left = -73.4432
+offset_top = 16.8612
+offset_right = 1226.56
+offset_bottom = 424.861
 scale = Vector2(0.0345437, 0.0345437)
 texture = ExtResource("3_uhagc")
 
-[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D"]
-position = Vector2(137.668, 2.13188)
+[node name="Grenade" type="TextureRect" parent="Player"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 2.195
+anchor_right = 2.195
+offset_left = 57.6065
+offset_top = 13.3727
+offset_right = 99.6065
+offset_bottom = 55.3727
 scale = Vector2(0.457948, 0.457948)
 texture = ExtResource("4_btxxm")
 
 [node name="Title" type="Label" parent="."]
 material = SubResource("ShaderMaterial_wb0q5")
-layout_mode = 0
-offset_left = 406.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -170.0
 offset_top = 68.0
-offset_right = 828.0
+offset_right = 252.0
 offset_bottom = 151.0
 text = "KERSPLOSION!"
 label_settings = SubResource("LabelSettings_wu84c")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
+anchor_bottom = 1.0
 offset_left = -170.0
-offset_top = -72.0
+offset_top = -396.0
 offset_right = 170.0
-offset_bottom = 271.0
+offset_bottom = -53.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 40

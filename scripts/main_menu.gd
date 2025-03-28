@@ -39,3 +39,7 @@ func _on_host_pressed() -> void:
 # Multiplayer join a game
 func _on_join_pressed() -> void:
 	pass
+
+#goes to multiplayer menu
+func _on_multiplayer_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/ui/multiplayer.tscn")

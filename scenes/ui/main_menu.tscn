@@ -1,0 +1,124 @@
+[gd_scene load_steps=9 format=3 uid="uid://c2m5ln1uat8ob"]
+
+[ext_resource type="Script" uid="uid://k5hncnk46hip" path="res://scripts/main_menu.gd" id="1_m1kxf"]
+[ext_resource type="Theme" uid="uid://circes5vqkja1" path="res://themes/menu_theme.tres" id="2_uhagc"]
+[ext_resource type="Texture2D" uid="uid://dqa6s7xp6b1g5" path="res://assets/CharlieDefaultPose.png" id="2_x2yvf"]
+[ext_resource type="Texture2D" uid="uid://om0oh0qsg8dr" path="res://assets/launcher.png" id="3_uhagc"]
+[ext_resource type="Texture2D" uid="uid://bgbv2ikl76ldv" path="res://assets/Pill.png" id="4_btxxm"]
+[ext_resource type="Shader" uid="uid://dmltavbd4oo5n" path="res://shaders/text_wave.gdshader" id="6_btxxm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wb0q5"]
+shader = ExtResource("6_btxxm")
+shader_parameter/u_amp_flutter = 0.0
+shader_parameter/u_angle_flutter = -180.0
+shader_parameter/u_speed_flutter = 0.1
+shader_parameter/u_amp_wave = 25.843
+shader_parameter/u_angle_wave = 90.0
+shader_parameter/u_speed_wave = 4.719
+shader_parameter/u_len_wave = 656.18
+shader_parameter/u_shape_wave = 2.41
+shader_parameter/u_width_wave = 1.219
+shader_parameter/u_x_light = 0.2
+shader_parameter/u_shape_light = 2.0
+shader_parameter/u_width_light = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_wu84c"]
+font_size = 60
+font_color = Color(1, 1, 0, 1)
+shadow_size = 2
+shadow_color = Color(1, 0, 0, 1)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m1kxf")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_uhagc")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -77.0
+offset_top = -35.0
+offset_right = 77.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "A game by Pumpkin"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(235, 119)
+scale = Vector2(4.69971, 5.15977)
+texture = ExtResource("2_x2yvf")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(23.4057, 2.32569)
+scale = Vector2(0.0345437, 0.0345437)
+texture = ExtResource("3_uhagc")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(137.668, 2.13188)
+scale = Vector2(0.457948, 0.457948)
+texture = ExtResource("4_btxxm")
+
+[node name="Title" type="Label" parent="."]
+material = SubResource("ShaderMaterial_wb0q5")
+layout_mode = 0
+offset_left = 406.0
+offset_top = 68.0
+offset_right = 828.0
+offset_bottom = 151.0
+text = "KERSPLOSION!"
+label_settings = SubResource("LabelSettings_wu84c")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -170.0
+offset_top = -72.0
+offset_right = 170.0
+offset_bottom = 271.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 65
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_uhagc")
+text = "Play DEMO"
+
+[node name="About" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_uhagc")
+text = "About"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_uhagc")
+text = "QUIT"
+
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/About" to="." method="_on_about_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

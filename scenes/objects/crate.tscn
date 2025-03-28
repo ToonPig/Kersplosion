@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqmy72mibjrdi"]
+
+[ext_resource type="Texture2D" uid="uid://xumx8fnihmrs" path="res://assets/yellowTile.png" id="1_b66cd"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dwt0d"]
+bounce = 0.52
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kn6iu"]
+size = Vector2(16, 17)
+
+[node name="Crate" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_dwt0d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_b66cd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_kn6iu")

@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var acceleration = 20
 @export var friction = 10
 
-var grenade = preload("res://scenes/grenade.tscn")
+var grenade = preload("res://scenes/objects/grenade.tscn")
 
 #not used atm but eventually for online play indicating little emotions
 var emote_textures = {
@@ -104,7 +104,7 @@ func update_health():
 		#print("max health reached")
 	elif health <= 0:
 		health = 0
-		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
+		get_tree().change_scene_to_file("res://scenes/ui/game_over.tscn")
 		print("u are dead! no big surpise.")
 
 func _on_is_shooting_timeout() -> void:

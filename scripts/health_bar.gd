@@ -1,9 +1,9 @@
 extends HBoxContainer
 #dont touch this it works perfectly!
 #unless you want to change the sprite file paths, then change the values below
-var health_full = preload("res://images/HealthFull.png")
-var health_partial = preload("res://images/HealthHalfEmpty.png")
-var health_empty = preload("res://images/HealthEmpty.png")
+var health_full = preload("res://assets/HealthFull.png")
+var health_partial = preload("res://assets/HealthHalfEmpty.png")
+var health_empty = preload("res://assets/HealthEmpty.png")
 
 #updates the health bar based on full heart half heart empty heart
 func update_health(value):

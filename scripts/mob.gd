@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var grenade = preload("res://scenes/ai_grenade.tscn")
+var grenade = preload("res://scenes/objects/ai_grenade.tscn")
 
 var speed = 1 #minus moves backwards positives move forwards
 var damage = 1
